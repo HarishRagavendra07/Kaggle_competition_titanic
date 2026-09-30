@@ -1,0 +1,8 @@
+.venv/
+__pycache__/
+.ipynb_checkpoints/
+.pytest_cache/
+.DS_Store
+
+# Kaggle competition data: download it from Kaggle rather than redistributing it
+data/*.csv

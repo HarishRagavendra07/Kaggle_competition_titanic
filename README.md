@@ -1,5 +1,7 @@
 # Titanic: what decided who survived?
 
+[![Tests](https://github.com/HarishRagavendra07/Kaggle_competition_titanic/actions/workflows/tests.yml/badge.svg)](https://github.com/HarishRagavendra07/Kaggle_competition_titanic/actions/workflows/tests.yml)
+
 An analysis of the Kaggle Titanic dataset that answers two questions:
 
 1. **Which factors influenced survival?** Exploratory analysis first, then confirmation from three independent model explanations: Logistic Regression coefficients, tree feature importances and SHAP.
@@ -60,7 +62,7 @@ Class changes what sex means: women in 1st class survived at 97% but women in 3r
 ```bash
 python3 -m venv .venv
 .venv/bin/pip install -r requirements.txt
-.venv/bin/python -m pytest                       # feature engineering tests
+.venv/bin/python -m pytest                       # 20 tests (3 need the Kaggle CSVs in data/)
 cd notebooks && ../.venv/bin/jupyter notebook titanic_analysis.ipynb
 ```
 
@@ -72,7 +74,9 @@ Download `train.csv` and `test.csv` from [Kaggle: Titanic - Machine Learning fro
 data/                       put Kaggle train.csv and test.csv here (not committed)
 notebooks/                  titanic_analysis.ipynb (executed, with outputs)
 src/features.py             feature engineering transformer
-tests/test_features.py      unit tests (14)
+tests/test_features.py      unit tests (20)
+tests/fixtures/             synthetic passengers, so tests run without Kaggle data (CI)
+.github/workflows/tests.yml runs the tests on every push
 reports/figures/            all charts
 reports/metrics.json        every reported number
 reports/submission.csv      Kaggle test-set predictions
